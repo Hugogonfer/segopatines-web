@@ -1,0 +1,4 @@
+# Protege el archivo de credenciales de solicitudes web directas en Apache.
+<Files "conexion.php">
+  Require all denied
+</Files>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Segopatines: alquiler de patinetes eléctricos en bancadas de Segovia. Prototipo de movilidad urbana sostenible.">
+  <meta name="theme-color" content="#faf6ef">
+  <title>Segopatines · Muévete por Segovia</title>
+
+  <!-- Leaflet permite mostrar un mapa real de OpenStreetMap sin clave API. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzx3L7Smjc1b5L0cIdqboM=" crossorigin="">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- Barra superior idéntica a la referencia: logotipo, navegación y reservar. -->
+  <header class="site-header" id="inicio">
+    <div class="container nav-layout">
+      <a href="#inicio" class="brand" aria-label="Segopatines, volver al inicio">
+        <img src="assets/img/logo.png" alt="Logotipo de Segopatines" width="43" height="43">
+        <span>Segopatines</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#patinetes">Patinetes</a>
+        <a href="#estaciones">Estaciones</a>
+      </nav>
+
+      <a href="#estaciones" class="button button-yellow nav-cta">Reservar</a>
+      <button type="button" class="menu-toggle" id="menuToggle"
+              aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- Portada con fotografía del Acueducto y lema corporativo. -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-content">
+        <span class="eyebrow">MOVILIDAD URBANA EN SEGOVIA</span>
+        <h1 id="hero-title">Muévete entre piedra milenaria. Sin ruido, sin humo.</h1>
+        <p>Recoge un patinete eléctrico en cualquier bancada, paga solo por el tiempo de uso y devuélvelo en otra. Nada de mantenimiento ni almacenamiento.</p>
+        <div class="hero-actions">
+          <a href="#estaciones" class="button button-yellow">Ver estaciones <span aria-hidden="true">↗</span></a>
+          <a href="#como-funciona" class="button button-outline">Cómo funciona</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seis pasos del servicio. -->
+    <section class="section how-section" id="como-funciona" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="how-title">Cómo funciona</h2>
+          <p>Seis pasos, de tu móvil a la bancada.</p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-top">
+              <svg aria-hidden="true" class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a7 7 0 0 1 7-7h2a7 7 0 0 1 4 1.3M19 8v8M15 12h8"/></svg>
+              <span class="step-num">1</span>
+            </div>
+            <h3>Regístrate</h3>
+            <p>Verifica tus requisitos y añade un método de pago.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-top">
+              <svg aria-hidden="true" class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2zM9 3v16M15 5v16"/></svg>
+              <span class="step-num">2</span>
+            </div>
+            <h3>Reserva</h3>
+            <p>Consulta el mapa de estaciones y reserva tu patinete.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-top">
+              <svg aria-hidden="true" class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="11" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0"/></svg>
+              <span class="step-num">3</span>
+            </div>
+            <h3>Desbloquea</h3>
+            <p>Llega a la bancada y desbloquéalo desde la app o la web.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-top">
+              <svg aria-hidden="true" class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="19" r="3"/><path d="M6 16v-5h12V8M6 6h7"/></svg>
+              <span class="step-num">4</span>
+            </div>
+            <h3>Circula</h3>
+            <p>Respeta la normativa y las zonas habilitadas.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-top">
+              <svg aria-hidden="true" class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
+              <span class="step-num">5</span>
+            </div>
+            <h3>Devuelve</h3>
+            <p>Ánclalo en una bancada autorizada y confirma.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-top">
+              <svg aria-hidden="true" class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18l-3-2-4 2-4-2-3 2zM15 8h-5a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4H9M12 6v12"/></svg>
+              <span class="step-num">6</span>
+            </div>
+            <h3>Recibo</h3>
+            <p>Recibe tu recibo, valora el viaje o reporta una avería.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ficha técnica y foto ilustrativa del patinete compartido. -->
+    <section class="scooter-section" id="patinetes" aria-labelledby="scooter-title">
+      <div class="container scooter-layout">
+        <div class="scooter-copy">
+          <h2 id="scooter-title">Nuestros patinetes</h2>
+          <p class="scooter-intro">Diseñados para cuestas, adoquines y uso intensivo.</p>
+          <div class="specs-grid">
+            <div class="spec-item"><span class="spec-icon" aria-hidden="true">♢</span><div><h3>Homologación</h3><p>Certificación VMP, registro DGT y seguro obligatorio.</p></div></div>
+            <div class="spec-item"><span class="spec-icon" aria-hidden="true">◴</span><div><h3>Motor y velocidad</h3><p>Adaptado a las cuestas de Segovia. Máx. 25 km/h.</p></div></div>
+            <div class="spec-item"><span class="spec-icon" aria-hidden="true">◎</span><div><h3>Ruedas y suspensión</h3><p>10–12”, alta adherencia y suspensión para adoquín.</p></div></div>
+            <div class="spec-item"><span class="spec-icon" aria-hidden="true">⚙</span><div><h3>Frenos y seguridad</h3><p>Frenos eficaces, luces, reflectantes y avisador acústico.</p></div></div>
+            <div class="spec-item"><span class="spec-icon" aria-hidden="true">▣</span><div><h3>Batería</h3><p>30–45 km de autonomía, con reposición planificada.</p></div></div>
+            <div class="spec-item"><span class="spec-icon" aria-hidden="true">⌁</span><div><h3>Conectividad</h3><p>GPS, bloqueo electrónico, telemetría y control en bancada.</p></div></div>
+            <div class="spec-item"><span class="spec-icon" aria-hidden="true">☂</span><div><h3>Resistencia</h3><p>Uso intensivo, protección contra lluvia y piezas reparables.</p></div></div>
+          </div>
+        </div>
+        <figure class="scooter-photo">
+          <img src="assets/img/patinete.jpg" alt="Patinete eléctrico de alquiler de referencia, blanco y verde" loading="lazy">
+          <figcaption>Imagen ilustrativa: modelo definitivo sujeto a selección.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Mapa Leaflet alimentado por la API PHP, lista y panel de estación. -->
+    <section class="section stations-section" id="estaciones" aria-labelledby="stations-title">
+      <div class="container">
+        <div class="stations-heading">
+          <div>
+            <h2 id="stations-title">Estaciones y bancadas</h2>
+            <p>El alquiler empieza y acaba solo en bancadas habilitadas: aceras despejadas para todos. Toca una estación para reservar.</p>
+          </div>
+          <span class="data-indicator" id="dataIndicator">Cargando estaciones…</span>
+        </div>
+
+        <div class="stations-layout">
+          <div>
+            <div class="map-wrapper">
+              <div id="map" class="map" role="application" aria-label="Mapa interactivo de las estaciones propuestas en Segovia"></div>
+              <div class="map-fallback" id="mapFallback" hidden>El mapa necesita conexión a Internet para cargar Leaflet y OpenStreetMap. Puedes elegir una estación desde la lista.</div>
+              <div class="map-legend"><span class="legend-dot"></span> Disponibles <span class="legend-dot unavailable"></span> Sin patinetes</div>
+            </div>
+            <p class="map-footnote">Ubicaciones y plazas orientativas del prototipo, no instalaciones reales. Mapa © OpenStreetMap.</p>
+          </div>
+
+          <div class="stations-sidebar">
+            <div id="stationsList" class="station-list" aria-label="Lista de estaciones" aria-live="polite">
+              <p class="loading-text">Cargando disponibilidad...</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="station-detail" id="stationDetail" aria-live="polite">
+          <div><h3>Selecciona una estación</h3><p>Consulta cuántos patinetes quedan libres.</p></div>
+        </aside>
+
+        <section class="travel-panel" id="travelPanel" hidden aria-labelledby="travelTitle">
+          <div class="travel-title-line"><div><span class="pill-dark">VIAJE EN CURSO · DEMO</span><h3 id="travelTitle">Tu patinete está en uso</h3><p id="travelDescription"></p></div><strong id="travelTimer">00:00</strong></div>
+          <div class="return-controls">
+            <label for="returnStation">Bancada de devolución</label>
+            <select id="returnStation"><option value="">Selecciona estación</option></select>
+            <button class="button button-yellow" type="button" id="finishTripBtn">Finalizar viaje</button>
+          </div>
+          <p class="small-note">La devolución se confirma en la base de datos; no comprueba un anclaje físico en este prototipo.</p>
+        </section>
+
+        <section class="receipt-panel" id="receiptPanel" hidden aria-live="polite">
+          <div><span class="pill-dark">RECIBO DE DEMOSTRACIÓN</span><h3>¡Viaje finalizado!</h3><p id="receiptText"></p></div>
+          <button class="button button-secondary" type="button" id="receiptClose">Cerrar recibo</button>
+        </section>
+      </div>
+    </section>
+
+    <!-- La imagen local incluye el lema para mantener fidelidad a la referencia. -->
+    <section class="closing-banner" aria-label="Cada patinete, en su bancada. Segovia lo agradece.">
+      <span class="sr-only">Cada patinete, en su bancada. Segovia lo agradece.</span>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <span>© 2026 Segopatines · Segovia</span>
+      <span>Proyecto académico · Foto Acueducto: <a href="https://commons.wikimedia.org/wiki/File:Acueducto,_Segovia,_Espa%C3%B1a,_2024-06-14,_DD_10.jpg" target="_blank" rel="noopener noreferrer">Diego Delso (CC BY-SA 4.0)</a> · Mapa © OpenStreetMap</span>
+    </div>
+  </footer>
+
+  <!-- Modal HTML nativo: la reserva y el desbloqueo usan PHP real. -->
+  <dialog id="bookingDialog" class="booking-dialog" aria-labelledby="dialogTitle">
+    <form method="dialog" class="dialog-close-row"><button type="submit" class="icon-close" aria-label="Cerrar ventana">×</button></form>
+    <div class="dialog-content">
+      <span class="eyebrow">SEGOPATINES · RESERVAS</span>
+      <h2 id="dialogTitle">Reserva tu patinete</h2>
+      <p id="dialogStationName" class="dialog-subtitle"></p>
+      <label for="scooterSelect">Patinete disponible</label>
+      <select id="scooterSelect" name="patinete"></select>
+      <p class="small-note" id="bookingAvailability">La reserva dura 10 minutos. El pago real no está activado.</p>
+      <div class="booking-message" id="bookingMessage" aria-live="polite"></div>
+      <div class="dialog-actions">
+        <button type="button" id="reserveBtn" class="button button-yellow">Reservar 10 minutos</button>
+        <button type="button" id="startBtn" class="button button-green" hidden>Desbloquear e iniciar</button>
+        <button type="button" id="cancelReserveBtn" class="button button-secondary" hidden>Cancelar reserva</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
